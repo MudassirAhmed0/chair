@@ -1,38 +1,241 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600;700;900&family=Nunito:wght@200;400;600;700;800&display=swap');
+:root{
+  --primary:#532d6c;
+  --secondary:#cfde00;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  /* background-color: #f3f3f3; */
+  margin-bottom: 2rem;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+ul{
+  list-style: none;
+}
+nav{
+  height: 60px;
+  background-color: var(--secondary);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 8%;
+
+}
+nav span{
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+
+}
+nav div:nth-child(1) span{
+  color:var(--primary);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.chairImage{
+  margin: auto;
+  max-width: 300px;
+  margin-top: 2rem;
+}
+.chairImage img{
+  display: block;
+  margin: auto;
+}
+.budget{
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+.budget > div{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.budget h3{
+ color: var(--secondary);
+ font-size: 1.7rem;
+ text-transform: uppercase;
+ 
+}
+.budget::before{
+    content: "";
+    width: 13%;
+    height: 20px;
+    border-top:  3px solid var(--secondary);
+    border-left:  3px solid var(--secondary);
+    top: 15px;
+    left: 45px;
+    position: absolute;
+}
+.budget::after{
+    content: "";
+    width: 13%;
+    height: 20px;
+    border-top:  3px solid var(--secondary);
+    border-right:  3px solid var(--secondary);
+    top: 15px;
+    right: 45px;
+    position: absolute;
+}
+.listComponent{
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.list h4{
+color: var(--secondary);
+font-weight: 600;
+font-size: 1.7rem;
+/* margin-bottom: .5rem; */
+text-transform: uppercase;
+
+}
+.list li{
+  padding: .5rem 0;
+  color: #999;
+  font-weight: 600;
+  position: relative;
+}
+.list input{
+  display: none;
+
+
+}
+.list label::before{
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--secondary);
+  display: inline-block;
+  border-radius: 50%;
+  top: 5px;
+  margin-right: 1rem;
+  position: relative;
+}
+.list label{
+  cursor: pointer;
+}
+.list label::after{
+  content: '';
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--secondary);
+  display: inline-block;
+  border-radius: 50%;
+  top: 17px;
+  margin-right: 1rem;
+  position: absolute;
+  left: 4px;
+}
+.list input:checked + label::after{
+  background-color: var(--secondary);
+}
+button{
+  margin: auto;
+  display: block;
+  width: 160px;
+  height: 40px;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tooltip{
+  position: absolute;
+  right: 60px;
+  top: 17px;
+}
+.tooltip img{
+  width: 30px;
+  cursor: pointer;
+}
+.tooltip span{
+  background-color: rgb(242, 242, 242);
+  display: inline-block;
+  position: absolute;
+  width: 300px;
+  z-index: 3;
+  left:50px;
+  top: -30px;
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+}
+.tooltip span::before{
+  content: '';
+  position: absolute;
+  top: 25%;
+  transform: translateY(-50%); 
+  z-index: 1;
+  background-color: rgba(242,242,242,1);
+ 
+  
+  width: 18px;
+  height: 18px;
+  transform: rotate(45deg);
+}
+.tooltip.active span{
+  pointer-events: initial;
+  opacity: 1;
+}
+.list > div{
+  display: none;
+}
+
+@media(min-width:768px){
+.tooltip span::before{
+   
+  left: -10px; 
+}}
+@media (max-width:768px){
+  nav{
+    padding: 0 5%;
+  }
+  nav span{
+    font-size: 1.2rem;
+    letter-spacing: 0;
+  }
+  .budget > div{
+    justify-content: center;
+
+  }
+  .budget > div div:nth-child(2){
+    display: none;
+  }
+  .listComponent{
+    flex-direction: column;
+    padding: 0 2rem;
+    row-gap: 2rem;
+  }
+  .budget::before,.budget::after{
+    display: none;
+}
+.list > div{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.tooltip span{
+  left: -310px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tooltip span::before{
+   
+  right: -10px; 
+}
+ 
 }
