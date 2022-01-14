@@ -230,6 +230,9 @@ button{
   display: flex;
   justify-content: center;
 }
+  .tooltip{
+  right:0
+  }
 .tooltip span{
   left: -310px;
 }
